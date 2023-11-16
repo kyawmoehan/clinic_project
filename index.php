@@ -108,6 +108,67 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- doctors -->
+        <header class="d-flex justify-content-between my-4">
+            <h3>Doctor List</h3>
+            <div>
+                <a href="./pages/doctor/create.php" class="btn btn-primary">Add New Doctor</a>
+            </div>
+        </header>
+        <?php
+        if (isset($_SESSION["doctorCreate"])) {
+        ?>
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION["doctorCreate"];
+                ?>
+            </div>
+        <?php
+            unset($_SESSION["doctorCreate"]);
+        }
+        ?>
+        <!-- doctors -->
+        <div class="table-responsive">
+            <table class='table table-hover table-bordered'>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Qualification</th>
+                        <th>Specializing</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    include('./config/connect.php');
+                    $query = "SELECT * FROM doctors ORDER BY id DESC";
+                    $stmt = $con->prepare($query);
+                    $stmt->execute();
+
+                    while ($data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                        extract($data);
+                    ?>
+                        <tr>
+                            <td><?php echo "{$id}" ?></td>
+                            <td><?php echo "{$fullName}" ?></td>
+                            <td><?php echo "{$qualification}" ?></td>
+                            <td><?php echo "{$specializing}" ?></td>
+                            <td><?php echo date_format(new DateTime($created), "d M Y") ?></td>
+                            <td>
+                                <a href="./pages/patient/view.php?id=<?php echo $data['id']; ?>" class="btn btn-info">Read</a>
+                                <a href="./pages/patient/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Update</a>
+                                <a href="#" onclick='delete_user(<?php echo "{$id}" ?>);' class="btn btn-danger">Delete</a>
+                            </td>
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
     <!-- script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
