@@ -45,19 +45,19 @@
         <form action="../../process/patient.php" method="post">
             <input type="hidden" value="<?php echo $id; ?>" name="id">
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="fullName" placeholder="Full Name" value="<?php echo $row["fullName"]; ?>">
+                <input type="text" class="form-control" name="fullName" placeholder="Full Name" value="<?php echo $row["fullName"]; ?>" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="number" class="form-control" name="patientNo" placeholder="Patient Number" value="<?php echo $row["patientNo"]; ?>">
+                <input type="number" class="form-control" name="patientNo" placeholder="Patient Number" value="<?php echo $row["patientNo"]; ?>" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="date" class="form-control" name="dob" value="<?php echo $row["dob"]; ?>">
+                <input type="date" class="form-control" name="dob" value="<?php echo $row["dob"]; ?>" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="number" class="form-control" name="age" placeholder="Age" value="<?php echo $row["age"]; ?>">
+                <input type="number" class="form-control" name="age" placeholder="Age" value="<?php echo $row["age"]; ?>" required="true">
             </div>
             <div class="form-element my-4">
-                <select name="sex" id="" class="form-control">
+                <select name="sex" id="" class="form-control" required="true">
                     <option value="">Select Gender</option>
                     <option value="Male" <?php if ($row["sex"] == "Male") {
                                                 echo "selected";
@@ -68,7 +68,7 @@
                 </select>
             </div>
             <div class="form-element my-4">
-                <select name="bloodGroup" id="" class="form-control">
+                <select name="bloodGroup" id="" class="form-control" required="true">
                     <option value="">Select Blood Group</option>
                     <option value="A" <?php if ($row["bloodGroup"] == "A") {
                                             echo "selected";

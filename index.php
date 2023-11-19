@@ -99,7 +99,7 @@
                             <td>
                                 <a href="./pages/patient/view.php?id=<?php echo $data['id']; ?>" class="btn btn-info">Read</a>
                                 <a href="./pages/patient/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Update</a>
-                                <a href="#" onclick='delete_user(<?php echo "{$id}" ?>);' class="btn btn-danger">Delete</a>
+                                <a href="#" onclick='delete_patient(<?php echo "{$id}" ?>);' class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -126,6 +126,30 @@
             </div>
         <?php
             unset($_SESSION["doctorCreate"]);
+        }
+        ?>
+        <?php
+        if (isset($_SESSION["doctorUpdated"])) {
+        ?>
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION["doctorUpdated"];
+                ?>
+            </div>
+        <?php
+            unset($_SESSION["doctorUpdated"]);
+        }
+        ?>
+        <?php
+        if (isset($_SESSION["doctorDeleted"])) {
+        ?>
+            <div class="alert alert-success">
+                <?php
+                echo $_SESSION["doctorDeleted"];
+                ?>
+            </div>
+        <?php
+            unset($_SESSION["doctorDeleted"]);
         }
         ?>
         <!-- doctors -->
@@ -158,9 +182,9 @@
                             <td><?php echo "{$specializing}" ?></td>
                             <td><?php echo date_format(new DateTime($created), "d M Y") ?></td>
                             <td>
-                                <a href="./pages/patient/view.php?id=<?php echo $data['id']; ?>" class="btn btn-info">Read</a>
-                                <a href="./pages/patient/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Update</a>
-                                <a href="#" onclick='delete_user(<?php echo "{$id}" ?>);' class="btn btn-danger">Delete</a>
+                                <a href="./pages/doctor/view.php?id=<?php echo $data['id']; ?>" class="btn btn-info">Read</a>
+                                <a href="./pages/doctor/edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Update</a>
+                                <a href="#" onclick='delete_doctor(<?php echo "{$id}" ?>);' class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -176,12 +200,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"></script>
     <script type='text/javascript'>
         // confirm record deletion
-        function delete_user(id) {
+        function delete_patient(id) {
             var answer = confirm('Are you sure?');
             if (answer) {
                 // if user clicked ok,
                 // pass the id to delete.php and execute the delete query
                 window.location = './process/patient.php?id=' + id;
+            }
+        }
+
+        function delete_doctor(id) {
+            var answer = confirm('Are you sure?');
+            if (answer) {
+                // if user clicked ok,
+                // pass the id to delete.php and execute the delete query
+                window.location = './process/doctor.php?id=' + id;
             }
         }
     </script>

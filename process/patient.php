@@ -121,5 +121,5 @@ if (isset($_GET['id'])) {
         die('ERROR: ' . $exception->getMessage());
     }
 } else {
-    echo "Book does not exist";
+    echo "Patient does not exist";
 }

@@ -24,16 +24,16 @@
 
         <form action="../../process/doctor.php" method="post">
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="fullName" placeholder="Full Name">
+                <input type="text" class="form-control" name="fullName" placeholder="Full Name" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="number" class="form-control" name="doctorNo" placeholder="Doctor Number">
+                <input type="number" class="form-control" name="doctorNo" placeholder="Doctor Number" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="qualification" placeholder="Qualification">
+                <input type="text" class="form-control" name="qualification" placeholder="Qualification" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="specializing" placeholder="specializing">
+                <input type="text" class="form-control" name="specializing" placeholder="specializing" required="true">
             </div>
             <div class="form-element my-4">
                 <input type="text" name="streetName" class="form-control" placeholder="Street Name"></input>

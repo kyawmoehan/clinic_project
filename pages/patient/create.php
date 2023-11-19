@@ -24,26 +24,26 @@
 
         <form action="../../process/patient.php" method="post">
             <div class="form-element my-4">
-                <input type="text" class="form-control" name="fullName" placeholder="Full Name">
+                <input type="text" class="form-control" name="fullName" placeholder="Full Name" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="number" class="form-control" name="patientNo" placeholder="Patient Number">
+                <input type="number" class="form-control" name="patientNo" placeholder="Patient Number" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="date" class="form-control" name="dob">
+                <input type="date" class="form-control" name="dob" required="true">
             </div>
             <div class="form-element my-4">
-                <input type="number" class="form-control" name="age" placeholder="Age">
+                <input type="number" class="form-control" name="age" placeholder="Age" required="true">
             </div>
             <div class="form-element my-4">
-                <select name="sex" id="" class="form-control">
+                <select name="sex" id="" class="form-control" required="true">
                     <option value="">Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
             </div>
             <div class="form-element my-4">
-                <select name="bloodGroup" id="" class="form-control">
+                <select name="bloodGroup" id="" class="form-control" required="true">
                     <option value="">Select Blood Group</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
